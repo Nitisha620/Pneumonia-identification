@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block content %}
+
+
+<h1 style="margin-left: 350px">Choose the Model</h1>
+<hr>
+<br>
+
+<div style="margin-left: 350px">
+<form  action="/modelSelection" method="post" enctype="multipart/form-data">
+<select name="models" id="models">
+  <option value="ML">   &nbsp&nbsp Support Vector Machine Model &nbsp &nbsp   </option>
+  <option value="DL">      &nbsp &nbsp Convolutional Network Model &nbsp &nbsp    </option>
+  <option value="Pre">    &nbsp &nbsp InceptionV3 Model &nbsp &nbsp         </option>
+</select>
+    <input type="submit">
+</form>
+</div>
+<br>
+<br>
+<h2 style="margin-left: 380px">Upload an Image</h2>
+<br>
+<div style="margin-left: 390px">
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        <label  style="margin-left: 2.7em" for="imageUpload" class="upload-label">
+            Choose...
+        </label>
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+    </form>
+
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+        <div>
+            <button style="margin-left: 3.1em" type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict</button>
+        </div>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+
+   <h5 id="result">
+        <span> </span>
+    </h5>
+    <h3 id="confidence_0">
+        <span> </span>
+    </h3>
+    <h3 id="confidence_1">
+        <span> </span>
+    </h3>
+
+</div>
+
+{% endblock %}
